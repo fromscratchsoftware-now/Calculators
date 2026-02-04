@@ -4,7 +4,10 @@
 code
 
 import React, { useState, useMemo, useEffect } from 'react';
+import { Calculator, Calendar, Printer, ChevronUp, Info, CheckCircle2, TrendingDown } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
+  
 interface AmortizationRow {
   paymentNumber: number;
   paymentDate: string;
