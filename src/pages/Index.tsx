@@ -99,6 +99,7 @@ export default function Index() {
     value.toLocaleString("en-US", {
       style: "currency",
       currency: "USD",
+      minimumFractionDigits: 2,
       maximumFractionDigits: 2,
     });
 
@@ -125,7 +126,7 @@ export default function Index() {
       <header className="border-b bg-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4">
           <div className="flex items-center gap-3">
-            <div className="grid h-10 w-10 place-items-center rounded-xl bg-blue-600 text-white shadow-sm">
+            <div className="grid h-10 w-10 place-items-center rounded-lg bg-blue-600 text-white shadow-sm">
               <svg
                 width="20"
                 height="20"
@@ -173,9 +174,9 @@ export default function Index() {
       </header>
 
       <main className="mx-auto max-w-7xl px-6 py-6">
-        <div className="grid gap-6 lg:grid-cols-[320px,1fr]">
+        <div className="grid gap-6 lg:grid-cols-[300px,1fr]">
           <aside className="space-y-5">
-            <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
               <h2 className="text-sm font-semibold text-slate-900">Loan Details</h2>
 
               <div className="mt-4 space-y-4 text-sm">
@@ -248,7 +249,7 @@ export default function Index() {
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
                     <span className="font-medium text-slate-700">Property Taxes</span>
-                    <div className="flex rounded-full border border-slate-200 bg-slate-50 p-0.5 text-xs">
+                    <div className="flex rounded-full border border-slate-200 bg-slate-100 p-0.5 text-xs">
                       {(["monthly", "annual"] as Frequency[]).map((mode) => (
                         <button
                           key={mode}
@@ -282,7 +283,7 @@ export default function Index() {
                 <div className="space-y-2 border-t border-slate-100 pt-4">
                   <div className="flex items-center justify-between">
                     <span className="font-medium text-slate-700">Extra Payments</span>
-                    <div className="flex rounded-full border border-slate-200 bg-slate-50 p-0.5 text-xs">
+                    <div className="flex rounded-full border border-slate-200 bg-slate-100 p-0.5 text-xs">
                       {(["monthly", "annual"] as Frequency[]).map((mode) => (
                         <button
                           key={mode}
@@ -332,25 +333,26 @@ export default function Index() {
 
           <section className="space-y-6">
             <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-              <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+              <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
                 <p className="text-xs text-slate-500">Monthly P&amp;I</p>
                 <p className="mt-2 text-xl font-semibold text-slate-900">{fmt(payment)}</p>
               </div>
-              <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+              <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
                 <p className="text-xs text-slate-500">Total Monthly</p>
                 <p className="mt-2 text-xl font-semibold text-blue-600">
                   {fmt(totalMonthly)}
                 </p>
                 <p className="mt-1 text-xs text-slate-400">Incl. taxes &amp; extra</p>
               </div>
-              <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+              <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
                 <p className="text-xs text-slate-500">Total Interest</p>
-                <p className="mt-2 text-xl font-semibold text-amber-600">
-                  {fmt(totalInterest)}</p>
+                <p className="mt-2 text-xl font-semibold text-amber-500">
+                  {fmt(totalInterest)}
+                </p>
               </div>
-              <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+              <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
                 <p className="text-xs text-slate-500">Payoff Date</p>
-                <p className="mt-2 text-lg font-semibold text-emerald-600">
+                <p className="mt-2 text-lg font-semibold text-emerald-500">
                   {payoffLabel}
                 </p>
                 <p className="mt-1 text-xs text-slate-400">
@@ -359,7 +361,7 @@ export default function Index() {
               </div>
             </div>
 
-            <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
               <h3 className="text-sm font-semibold text-slate-900">Cost Breakdown</h3>
               <div className="mt-4 space-y-3 text-sm">
                 <div className="flex items-center justify-between">
@@ -368,7 +370,7 @@ export default function Index() {
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-slate-600">Total Interest</span>
-                  <span className="font-semibold text-amber-600">{fmt(totalInterest)}</span>
+                  <span className="font-semibold text-amber-500">{fmt(totalInterest)}</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-slate-600">Total Taxes ({schedule.length} months)</span>
@@ -405,7 +407,7 @@ export default function Index() {
               </div>
             </div>
 
-            <div className="rounded-2xl border border-slate-200 bg-white shadow-sm">
+            <div className="rounded-xl border border-slate-200 bg-white shadow-sm">
               <div className="border-b border-slate-100 px-5 py-4">
                 <h3 className="text-sm font-semibold text-slate-900">Amortization Schedule</h3>
                 <p className="mt-1 text-xs text-slate-500">
@@ -415,7 +417,7 @@ export default function Index() {
 
               <div className="max-h-[520px] overflow-auto">
                 <table className="min-w-full text-sm">
-                  <thead className="sticky top-0 bg-slate-50 text-xs text-slate-500">
+                  <thead className="sticky top-0 bg-slate-100 text-xs font-semibold text-slate-500">
                     <tr>
                       <th className="px-4 py-3 text-left">#</th>
                       <th className="px-4 py-3 text-left">Date</th>
@@ -429,14 +431,14 @@ export default function Index() {
                   </thead>
                   <tbody className="divide-y divide-slate-100">
                     {schedule.map((row) => (
-                      <tr key={row.n} className="hover:bg-slate-50">
+                      <tr key={row.n} className="hover:bg-slate-100">
                         <td className="px-4 py-3 text-slate-500">{row.n}</td>
                         <td className="px-4 py-3 text-slate-700">{row.dateLabel}</td>
                         <td className="px-4 py-3 text-right text-slate-700">{fmt(row.begin)}</td>
                         <td className="px-4 py-3 text-right text-slate-700">{fmt(row.payment)}</td>
                         <td className="px-4 py-3 text-right text-blue-600">{fmt(row.principal)}</td>
-                        <td className="px-4 py-3 text-right text-amber-600">{fmt(row.interest)}</td>
-                        <td className="px-4 py-3 text-right text-emerald-600">
+                        <td className="px-4 py-3 text-right text-amber-500">{fmt(row.interest)}</td>
+                        <td className="px-4 py-3 text-right text-emerald-500">
                           {row.extra ? fmt(row.extra) : "—"}
                         </td>
                         <td className="px-4 py-3 text-right text-slate-700">{fmt(row.end)}</td>
