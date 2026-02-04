@@ -181,7 +181,7 @@ export default function Index() {
       </header>
 
       <main className="mx-auto max-w-7xl px-6 py-6">
-        <div className="grid gap-6 md:grid-cols-[300px,1fr]">
+        <div className="grid gap-6 sm:grid-cols-[300px,1fr]">
           <aside className="space-y-5">
             <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
               <h2 className="text-2xl font-semibold text-slate-900">Loan Details</h2>
