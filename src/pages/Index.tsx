@@ -129,7 +129,7 @@ export default function Index() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900">
+    <div id="top" className="min-h-screen bg-slate-50 text-slate-900">
       <header className="border-b bg-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4">
           <div className="flex items-center gap-3">
@@ -464,6 +464,14 @@ export default function Index() {
           </section>
         </div>
       </main>
+
+      <button
+        type="button"
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        className="fixed bottom-6 right-6 z-50 rounded-full bg-white/90 px-4 py-2 text-sm font-semibold text-slate-700 shadow-lg ring-1 ring-slate-200 backdrop-blur transition hover:bg-white"
+      >
+        Back to top
+      </button>
 
       <footer className="border-t bg-white">
         <div className="mx-auto max-w-7xl px-6 py-6 text-center text-xs text-slate-400">
