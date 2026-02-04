@@ -183,7 +183,7 @@ export default function Index() {
       <main className="mx-auto max-w-7xl px-6 py-6">
         <div className="grid gap-6 sm:grid-cols-[300px_1fr]">
           <aside className="space-y-5">
-            <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+            <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm max-h-[calc(100vh-220px)] overflow-y-auto pr-4">
               <h2 className="text-2xl font-semibold text-slate-900">Loan Details</h2>
 
               <div className="mt-6 space-y-6">
@@ -345,7 +345,7 @@ export default function Index() {
           </aside>
 
           <section className="space-y-6">
-            <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+            <div className="grid gap-4 md:grid-cols-4">
               <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
                 <p className="text-xs text-slate-500">Monthly P&amp;I</p>
                 <p className="mt-2 text-xl font-semibold text-slate-900">{fmt(payment)}</p>
